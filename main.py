@@ -1,29 +1,33 @@
 import spellchecker
+import dictionary as dict
 
 sc = spellchecker.SpellChecker()
+d = dict.Dictionary()
 
 while(True):
     sc.printMenu()
 
     txtIn = input()
     # Add input control here!
+    if not txtIn.isdigit():
+        raise ValueError("Inserisci un numero!")
 
     if int(txtIn) == 1:
         print("Inserisci la tua frase in Italiano\n")
         txtIn = input()
-        sc.handleSentence(txtIn,"italian")
+        sc.handleSentence(txtIn,"Italian")
         continue
 
     if int(txtIn) == 2:
         print("Inserisci la tua frase in Inglese\n")
         txtIn = input()
-        sc.handleSentence(txtIn,"english")
+        sc.handleSentence(txtIn,"English")
         continue
 
     if int(txtIn) == 3:
         print("Inserisci la tua frase in Spagnolo\n")
         txtIn = input()
-        sc.handleSentence(txtIn,"spanish")
+        sc.handleSentence(txtIn,"Spanish")
         continue
 
     if int(txtIn) == 4:
