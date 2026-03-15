@@ -14,7 +14,26 @@ class SpellChecker:
         for word in words:
             correctWord = replaceChars(word).lower()
             correctWords.append(correctWord)
-        lista = self.multy_dictionary.searchWord(correctWords, language)
+        print("-"*40)
+        print("Using CONTAINS")
+        start = time.time()
+        list = self.multy_dictionary.searchWord(correctWords, language)
+        end = time.time()
+        print(f"Time elapsed: {end - start:.6f}")
+
+        print("-" * 40)
+        print("Using LINEAR SEARCH")
+        start = time.time()
+        list1 = self.multy_dictionary.searchWordLinear(correctWords, language)
+        end = time.time()
+        print(f"Time elapsed: {end-start:.6f}")
+
+        print("-" * 40)
+        print("Using DICHOTOMIC SEARCH")
+        start = time.time()
+        list2 = self.multy_dictionary.searchWordDichotomic(correctWords, language)
+        end = time.time()
+        print(f"Time elapsed: {end-start:.6f}")
 
 
 
